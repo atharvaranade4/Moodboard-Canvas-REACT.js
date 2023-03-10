@@ -5,7 +5,8 @@ function App() {
   return (
     <>
       <p>Test Deploy</p>
-      <p> testing branch</p>
+      <p>Testing branch</p>
+      <p>Testing actions of PR</p>
     </>
   );
 }
