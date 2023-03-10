@@ -15,3 +15,4 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_MOODBOARD_EA93E }}"
           projectId: moodboard-ea93e
+          entryPoint: ./moodboard
