@@ -1,18 +1,33 @@
 import React from 'react';
+import downloadjs from 'downloadjs';
+import html2canvas from 'html2canvas';
 import { useState, useEffect } from "react"
 import GetImages from './GetImages';
 import Canvas from './Canvas';
 import Collection from './Collection'
+import BoardInfo from './UIComponent/BoardInfo'
 import './App.css';
 
 
 function App() {
   const [collectionArr, setCollectionArr] = useState([]);
   const [canvasArr, setCanvasArr] = useState([]);
+  const [setShow] = useState(false)
+
+  const handleClick = event => {
+    setShow(current => !current)
+}
+  const handleCaptureClick = async () => {
+    const canvasDownload = document.querySelector('.download-container');
+    if (!canvasDownload) return;
+
+    const canvas = await html2canvas(canvasDownload);
+    const dataURL = canvas.toDataURL('image/png');
+    downloadjs(dataURL, 'canvas.png', 'image/png');
+  };
 
   useEffect(()=>{
     document.querySelector('#head').addEventListener("input", (event) =>{
-      console.log(event)
       document.querySelector('.canvas').style.backgroundColor=event.target.value
     },false)
   }, [])
@@ -25,8 +40,6 @@ function App() {
             return
         }
     setCollectionArr(prevState => [...prevState, imageToAdd])
-    console.log(collectionArr)
-    console.log(imageToAdd)
   }
 
   const removeFromCollectionArr = function(imgId){
@@ -50,7 +63,7 @@ function App() {
   const AddToCanvasArr = function(imageToAdd) {
     let alreadyExist = canvasArr.some(item => item.id === imageToAdd.id)
       if(alreadyExist) {
-          alert('The item is already in the cart.')
+          alert('Itemn already on canvas.')
           return
       }
     setCanvasArr(prevState => [...prevState, imageToAdd])
@@ -72,30 +85,32 @@ function App() {
     </>
   )
 
-  const el = document.querySelector(".canvas-container")
-  console.log(el)
-
   return (
+    <>
     <div className="App">
-      <h2>Build your Gallery</h2>
-      <div>
-      <p>Choose your canvas colors:</p>
-      <div>
-        <input type="color" id="head" name="head"
-         value="#e66465"/>
-        <label for="head">Head</label>
-      </div>
+      <h2>Build your Image-Gallery</h2>
+      <div className='download-container'>
+        <BoardInfo />
         <div className="canvas" id="canvas-bounds">
           {CanvasImage}
         </div>
       </div>
-
-      <GetImages
-        addToGlobalCollection={AddToCollectionArr}
-      />
+      <div className='download-btn_container'>
+        <button className='download-btn' onClick={handleCaptureClick}>Download Canvas</button>
+      </div>
+        <GetImages
+          addToGlobalCollection={AddToCollectionArr}
+        />
+      <div className='line'></div>
       <h2>Collection</h2>
       {CollectionImage}
     </div>
+    {/* <Examples /> */}
+    <div className="footer">
+		  <p>UW Coursework Final-Project II</p>
+		  <p>Built by <a href="https://github.com/atharvaranade4" className="github-link">Atharva Ranade</a></p>
+	  </div>
+  </>
   );
 }
 

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
+import PropTypes from 'prop-types';
 import InputBox from '../UIComponent/InputBox';
 import QueryImageCard from "../UIComponent/QueryImageCard"
 
 
-export default function UnSplash({addToGlobalCollection }){
+export default function UnSplash({ addToGlobalCollection }){
     const [images, setImages] = useState([])
     const [userPrompt, setUserPrompt] = useState("")
     const [number, setNumber] = useState(1)
@@ -54,7 +55,7 @@ export default function UnSplash({addToGlobalCollection }){
     
     const AddToCollection = function(imgId) {
         let imageToAdd = images.find(image => image.id === imgId)
-        imageToAdd.apiImageSrc = "UnSplash"
+        imageToAdd.apiImageSrc = " UnSplash"
         addToGlobalCollection(imageToAdd)
         document.getElementById(`unsplashImage${imgId}`).children[0].style.backgroundColor= '#ff0000'
         // console.log(document.getElementById(`unsplashImage${imgId}`).children[0])
@@ -84,10 +85,11 @@ export default function UnSplash({addToGlobalCollection }){
         <>
            {!images? <h1>Loading...</h1> :
             <div>
-                <button onClick={openDialog}>Get Images from Unsplash</button>
+                <button className = "getimagesAPI-btn" onClick={openDialog}>Get Images from Unsplash</button>
                 <dialog id="UnsplashDialog">
                     <>
-                        <button onClick={closeDialog}>Close</button>
+                        <span className="close-btn" onClick={closeDialog}>&times;</span>
+                        <h3 href="https://unsplash.com/">Unsplash</h3>
                         <InputBox label={"Description"} setAttribute={setUserPrompt}/>
                         <InputBox label={"Number of images"} setAttribute={setNumber}/>
                         <button className="" onClick={customSearch}>Generate</button>
@@ -102,4 +104,8 @@ export default function UnSplash({addToGlobalCollection }){
 
         </>
     )
+}
+
+UnSplash.propTypes = {
+    addToGlobalCollection: PropTypes.func.isRequired,
 }

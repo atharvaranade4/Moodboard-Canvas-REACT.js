@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import CollectionImageCard from "./UIComponent/CollectionImageCard"
 
-export default function Collection ({ collectionCart, removeCollection, addCanvas, imgSource }){
-    console.log(collectionCart)
+export default function Collection ({ collectionCart, removeCollection, addCanvas }){
+    // console.log(collectionCart)
     let CollectionItems = collectionCart.map((item, index) =>
+        <div key={index}>
             <CollectionImageCard
                 img = {item}
                 addCanvas = {addCanvas}
@@ -11,7 +13,7 @@ export default function Collection ({ collectionCart, removeCollection, addCanva
                 removeFromSrc = {removeCollection}
                 imgSource = {item.apiImageSrc}
             />
-
+        </div>
     )
     
     return(
@@ -19,4 +21,10 @@ export default function Collection ({ collectionCart, removeCollection, addCanva
             {CollectionItems}
         </>
     )    
+}
+
+Collection.propTypes = {
+    collectionCart: PropTypes.array.isRequired,
+    removeCollection: PropTypes.func.isRequired,
+    addCanvas: PropTypes.func.isRequired
 }

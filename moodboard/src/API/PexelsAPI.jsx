@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react"
+import PropTypes from 'prop-types';
 import InputBox from '../UIComponent/InputBox';
 import QueryImageCard from "../UIComponent/QueryImageCard"
 
 
-export default function UnSplash({ addToGlobalCollection }){
+export default function Pexels({ addToGlobalCollection }){
     const [images, setImages] = useState([])
     const [userPrompt, setUserPrompt] = useState("")
     const [number, setNumber] = useState(1)
-    const [show, setShow] = useState(false)
     const [loading, setLoading] = useState(true)
-
-    const handleClick = event => {
-        setShow(current => !current)
-    }
 
     useEffect(()=>{
     })
@@ -50,12 +46,13 @@ export default function UnSplash({ addToGlobalCollection }){
         }
         catch(error){
             console.log(error)
-            alert('Failed to search Unsplash')
+            alert('Failed to search Pexels')
         }
     }
     
     const AddToCollection = function(imgId) {
         let imageToAdd = images.find(image => image.id === imgId)
+        imageToAdd.apiImageSrc = " Pexels"
         addToGlobalCollection(imageToAdd)
         document.getElementById(`pexelsImage${imgId}`).children[0].style.backgroundColor= '#ff0000'
     }
@@ -84,12 +81,13 @@ export default function UnSplash({ addToGlobalCollection }){
         <>
            {!images? <h1>Loading...</h1> :
             <div>
-                <button onClick={openDialog}>Get Images from Pexels</button>
+                <button className="getimagesAPI-btn" onClick={openDialog}>Get Images from Pexels</button>
                 <dialog id="PexelsDialog">
                     <>
-                        <button onClick={closeDialog}>Close</button>
-                        <InputBox label={"Description"} setAttribute={setUserPrompt}/>
-                        <InputBox label={"Number of images"} setAttribute={setNumber}/>
+                        <span className="close-btn" onClick={closeDialog}>&times;</span>
+                        <h3 href="https://unsplash.com/">Pexels</h3>
+                        <InputBox label={"Description "} setAttribute={setUserPrompt}/>
+                        <InputBox label={"Number of images "} setAttribute={setNumber}/>
                         <button className="" onClick={customSearch}>Generate</button>
                         <p>Search results: {images.length}</p>
                         <div className="query-container">
@@ -102,4 +100,8 @@ export default function UnSplash({ addToGlobalCollection }){
 
         </>
     )
+}
+
+Pexels.propTypes = {
+    addToGlobalCollection: PropTypes.func.isRequired,
 }
