@@ -67,7 +67,7 @@ function DallE(){
             <button className="getimagesAPI-btn" onClick={openDialog}>Get Images from DallE</button>
             <dialog id="DallEDialog">
                 <>
-                    <button onClick={closeDialog}>Close</button>
+                    <button className = "close-btn"onClick={closeDialog}>&times;</button>
                     <h3>Coming Soon!</h3>
                 </>
             </dialog>

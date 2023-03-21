@@ -5,7 +5,7 @@ import CollectionImageCard from "./UIComponent/CollectionImageCard"
 export default function Collection ({ collectionCart, removeCollection, addCanvas }){
     // console.log(collectionCart)
     let CollectionItems = collectionCart.map((item, index) =>
-        <div key={index}>
+        <div className="collection-card_container" key={index}>
             <CollectionImageCard
                 img = {item}
                 addCanvas = {addCanvas}

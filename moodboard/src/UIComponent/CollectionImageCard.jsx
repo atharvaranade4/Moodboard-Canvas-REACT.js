@@ -5,24 +5,28 @@ export default function CollectionImageCard ({ img, addCanvas, addAction, remove
     console.log(img)
     let isPexel = img.hasOwnProperty('src')
     return(
-        <article className="collection-image_container">
-            <span 
-                className="collection-list-btn"
-                onClick={() => removeFromSrc(img.id)}>&times;
-            </span>
-            {(isPexel)?
-                <img src={ img.src.original } alt={ img.url } />
-                : <img src={ img.urls.full } alt={ img.url }/>} 
-            {(isPexel)?
-                <a href={img.photographer_url} target="_blank">{img.photographer}</a>
-                :<a href={img.user.portfolio_url} target="_blank">{img.user.first_name}</a>}
-            <p>Image-Source:{imgSource}</p>
-            {(addAction)?
-            <button
-                className="collection-list-btn"
-                onClick={() => addCanvas(img)}>{addAction}
-            </button> : null}
-        </article>
+        <div className="collection-card">
+            <div className="collection-image_container">
+                <button 
+                    className="close-btn"
+                    onClick={() => removeFromSrc(img.id)}>&times;
+                </button>
+                {(isPexel)?
+                    <img src={ img.src.original } alt={ img.url } />
+                    : <img src={ img.urls.full } alt={ img.url }/>} 
+            </div>
+            <div className="collection-details_container">
+                {(isPexel)?
+                    <a className="artist-details" href={img.photographer_url} target="_blank">{img.photographer}</a>
+                    :<a className="artist-details" href={img.user.portfolio_url} target="_blank">{img.user.first_name}</a>}
+                <p>Image-Source:{imgSource}</p>
+                {(addAction)?
+                <button
+                    className="list-btn"
+                    onClick={() => addCanvas(img)}>{addAction}
+                </button> : null}
+            </div>
+        </div>
     )    
 }
 

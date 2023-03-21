@@ -14,7 +14,7 @@ export default function QueryImageCard ({ img, manageCollection, action }){
                     : <img src={ img.urls.full } alt={ img.url }/>}
                 <div className="fullcap">
                     <button
-                        className="collection-list-btn"
+                        className="list-btn"
                         onClick={() => manageCollection(img.id)}>{action}
                         {/* without callback, the functions loads by itself */}
                     </button>

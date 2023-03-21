@@ -88,7 +88,8 @@ export default function Pexels({ addToGlobalCollection }){
                         <h3 href="https://unsplash.com/">Pexels</h3>
                         <InputBox label={"Description "} setAttribute={setUserPrompt}/>
                         <InputBox label={"Number of images "} setAttribute={setNumber}/>
-                        <button className="" onClick={customSearch}>Generate</button>
+                        <button className="list-btn" onClick={customSearch}>Generate</button>
+                        <div className='line_short'></div>
                         <p>Search results: {images.length}</p>
                         <div className="query-container">
                             {PexelsImage}

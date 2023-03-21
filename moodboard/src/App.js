@@ -100,7 +100,7 @@ function App() {
         </div>
       </div>
       <div className='download-btn_container'>
-        <button className='download-btn' onClick={handleCaptureClick}>Download Canvas</button>
+        <button className='list-btn' onClick={handleCaptureClick}>Download Canvas</button>
       </div>
         <GetImages
           addToGlobalCollection={AddToCollectionArr}

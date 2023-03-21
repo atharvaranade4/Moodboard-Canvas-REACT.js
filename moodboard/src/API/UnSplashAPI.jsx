@@ -57,7 +57,7 @@ export default function UnSplash({ addToGlobalCollection }){
         let imageToAdd = images.find(image => image.id === imgId)
         imageToAdd.apiImageSrc = " UnSplash"
         addToGlobalCollection(imageToAdd)
-        document.getElementById(`unsplashImage${imgId}`).children[0].style.backgroundColor= '#ff0000'
+        // document.getElementById(`unsplashImage${imgId}`).children[0].style.backgroundColor= '#ff0000'
         // console.log(document.getElementById(`unsplashImage${imgId}`).children[0])
     }
 
@@ -92,7 +92,8 @@ export default function UnSplash({ addToGlobalCollection }){
                         <h3 href="https://unsplash.com/">Unsplash</h3>
                         <InputBox label={"Description"} setAttribute={setUserPrompt}/>
                         <InputBox label={"Number of images"} setAttribute={setNumber}/>
-                        <button className="" onClick={customSearch}>Generate</button>
+                        <button className="list-btn" onClick={customSearch}>Generate</button>
+                        <div className='line_short'></div>
                         <p>Search results: {images.length}</p>
                         <div className="query-container">
                             {UnsplashImage}
