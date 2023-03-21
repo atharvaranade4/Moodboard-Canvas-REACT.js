@@ -7,11 +7,11 @@ export default function Examples (){
     return(
 		<section>
 			<div class ="examples">
-				<p>MoodBoard Examples</p>
-				<div class="example-images">
-					<img src="./assets/Example_1.JPG" alt="forest" height="300px"/>
-					<img src="./assets/Example_2.JPG" alt="forest" height="300px"/>
-					<img src="./assets/Example_3.JPG" alt="forest" height="300px"/>
+				<h3>Examples</h3>
+				<div className="example-images">
+					<img src= {require('./assets/Example_1.JPG')} alt="forest" height="300px"/>
+					<img src={require('./assets/Example_2.JPG')} alt="forest" height="300px"/>
+					<img src={require('./assets/Example_3.JPG')} alt="forest" height="300px"/>
 				</div>
 			</div>
 		</section>

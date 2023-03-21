@@ -7,7 +7,7 @@ import Canvas from './Canvas';
 import Collection from './Collection'
 import BoardInfo from './UIComponent/BoardInfo'
 import './App.css';
-
+import Examples from './Examples'
 
 function App() {
   const [collectionArr, setCollectionArr] = useState([]);
@@ -21,7 +21,7 @@ function App() {
     const canvasDownload = document.querySelector('.download-container');
     if (!canvasDownload) return;
 
-    const canvas = await html2canvas(canvasDownload);
+    const canvas = await html2canvas(canvasDownload, {useCORS: true});
     const dataURL = canvas.toDataURL('image/png');
     downloadjs(dataURL, 'canvas.png', 'image/png');
   };
@@ -88,7 +88,11 @@ function App() {
   return (
     <>
     <div className="App">
-      <h2>Build your Image-Gallery</h2>
+      <div className='title-container'>
+        <h2 className='title'>Build your Image-Gallery</h2>
+        <img className='title-image' src={require('./assets/brown_background.png')} alt="Snow"/>
+      </div>
+      <h3>Canvas</h3>
       <div className='download-container'>
         <BoardInfo />
         <div className="canvas" id="canvas-bounds">
@@ -102,10 +106,11 @@ function App() {
           addToGlobalCollection={AddToCollectionArr}
         />
       <div className='line'></div>
-      <h2>Collection</h2>
+      <h3>Collection</h3>
       {CollectionImage}
+      <div className='line'></div>
     </div>
-    {/* <Examples /> */}
+    <Examples />
     <div className="footer">
 		  <p>UW Coursework Final-Project II</p>
 		  <p>Built by <a href="https://github.com/atharvaranade4" className="github-link">Atharva Ranade</a></p>

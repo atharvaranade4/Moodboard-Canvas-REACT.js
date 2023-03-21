@@ -1,10 +1,10 @@
 export default function boardInfo (){
     return(
         <div className='info-container'>
-            <div className="title-container">
+            <div className="into-title_container">
                 <input
                 id="title"
-                placeholder="Title:"
+                placeholder="TITLE:"
                 className="title-input"
                 type="text"                                            
                 />
@@ -14,13 +14,13 @@ export default function boardInfo (){
                 id="description"
                 className="description-input"
                 type="text"
-                placeholder="Description: maximum 120 char" 
+                placeholder="DESCRIPTION: Maximum 120 char" 
                 size="120"
                 />
                 </div>
             <div>
-                <input type="color" id="head" name="head"/>
                 <label htmlFor="head"> Canvas Color</label>
+                <input type="color" id="head" name="head"/>
             </div>
         </div>
     )    
