@@ -13,7 +13,8 @@ function App() {
   const [collectionArr, setCollectionArr] = useState([]);
   const [canvasArr, setCanvasArr] = useState([]);
   const [setShow] = useState(false)
-
+  
+// eslint-disable-next-line
   const handleClick = event => {
     setShow(current => !current)
 }
@@ -36,7 +37,7 @@ function App() {
   const AddToCollectionArr = function(imageToAdd) {
     let alreadyExist = collectionArr.some(item => item.id === imageToAdd.id)
         if(alreadyExist) {
-            alert('The item is already in the cart.')
+            alert('The item is already in the collection.')
             return
         }
     setCollectionArr(prevState => [...prevState, imageToAdd])
@@ -63,7 +64,7 @@ function App() {
   const AddToCanvasArr = function(imageToAdd) {
     let alreadyExist = canvasArr.some(item => item.id === imageToAdd.id)
       if(alreadyExist) {
-          alert('Itemn already on canvas.')
+          alert('Item already on canvas.')
           return
       }
     setCanvasArr(prevState => [...prevState, imageToAdd])
@@ -89,7 +90,7 @@ function App() {
     <>
     <div className="App">
       <div className='title-container'>
-        <h2 className='title'>Build your Image-Gallery</h2>
+        <h2 className='title'>Build your Moodboard</h2>
         <img className='title-image' src={require('./assets/brown_background.png')} alt="Snow"/>
       </div>
       <h3>Canvas</h3>

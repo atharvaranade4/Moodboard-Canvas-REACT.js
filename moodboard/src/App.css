@@ -32,7 +32,7 @@ a{
 }
 h2{
   font-family:'Times New Roman', Times, serif;
-  color:#e1e1e1;
+  color:#532f03;
 	font-size: 4em;
 }
 h3{
@@ -59,6 +59,10 @@ h3{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #e1d6c8;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  opacity: 0.85;
 }
 .title-input{
   font-size: 20px;
@@ -275,7 +279,7 @@ input[type=text]:focus {
   background: none;
 }
 .close-btn:hover{
-  color: rgb(199, 111, 111);
+  color: rgb(223, 58, 58);
 }
 
 
