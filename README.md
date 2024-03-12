@@ -1,6 +1,6 @@
 # Web-Moodboard
 
-## Project Link: [moodboard](https://image-moodboard.vercel.app/)
+## Project [Link](https://image-moodboard.vercel.app/)
 
 ## Table of Contents
 
