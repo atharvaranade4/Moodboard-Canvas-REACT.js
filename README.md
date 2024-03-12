@@ -5,9 +5,8 @@ Project Link: [moodboard](https://image-moodboard.vercel.app/)
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Demo](#demo)
+- [Project Screenshots](#demo)
 - [Installation](#installation)
-- [Usage](#usage)
 
 ## Introduction
 
@@ -17,13 +16,10 @@ A web-based moodboard creation App that allows users to pull images from [Pexels
 
 List of features or functionalities of the project.
 
-- Feature 1
-- Feature 2
-- ...
+- Queries images from Pexels and UnSplash using API
+- Implements a React-Canvas 
 
-## Demo
-
-Link to a live demo of the project, if available. Screenshots can also be included here.
+## Project Screenshots
 
 ## Installation
 
