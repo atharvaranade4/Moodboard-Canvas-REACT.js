@@ -6,7 +6,7 @@ console.log(assets)
 export default function Examples (){
     return(
 		<section>
-			<div class ="examples">
+			<div className ="examples">
 				<h3>Examples</h3>
 				<div className="example-images">
 					<img src= {require('./assets/Example_1.JPG')} alt="forest" height="300px"/>
